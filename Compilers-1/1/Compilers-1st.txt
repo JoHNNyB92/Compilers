@@ -1,0 +1,59 @@
+LL(1) Grammar
+
+
+expr-> term expr2
+
+expr2-> + term expr2
+	  | - term expr2
+	  | ε
+	 
+term-> factor term2
+term2-> * factor term2
+	  | / factor term2
+	  | ε
+	  
+factor-> 0|1|2|3|4|5|6|7|8|9
+		| ( expr )
+------------------------------------------------------------------------------------------------------------
+First-Follow-First+ sets
+
+a)FIRST Sets
+
+FIRST(expr)={0,...,9,(}
+FIRST(term)={0,...,9,(}
+FIRST+(term2)={*,/,ε}={*,/,FIRST(expr2)}={*,/,+,-,ε}={*,/,+,-,$}
+FIRST(expr2)={+,-,ε}={+-,$}
+FIRST(expr)={0,...,9,(}
+
+b)FOLLOW Sets
+
+FOLLOW(expr)={$,)}
+FOLLOW(expr2)={$,)}
+FOLLOW(term)=FIRST(expr2)={+,-,ε}={+,-,$,)}
+FOLLOW(term2)={+,-,$,)}
+FOLLOW(factor)={+,-,*,/,$)}
+
+
+
+
+
+LOOKUP Table
+
+
+		|    0...9		|    +,-		|    *,/		|     (			|     )		
+---------------------------------------------------------------------------------
+expr	| term expr2	|  	Error		|	Error		|  term expr2	|	Error
+---------------------------------------------------------------------------------
+expr2	|	ε			| +,- term expr2| 	ε   		|	ε			|	ε
+---------------------------------------------------------------------------------
+term	| factor term2	|	Error		|	Error		| factor term2	| 	Error
+---------------------------------------------------------------------------------
+term2	| 	ε			|	ε			|*,/factor term2|	ε			|	ε
+---------------------------------------------------------------------------------
+factor	| do nothing	|	Error		|	Error		| ( expr )		|	Εrror
+
+
+
+
+
+	

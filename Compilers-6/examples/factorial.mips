@@ -1,0 +1,1396 @@
+.text 
+main:
+	add $sp, $sp, -4 
+	sw $ra, 4($sp)
+	add $a0,$0,4
+	jal .alloc 
+	add $t0, $v0, $0
+	add $a0,$0,4
+	jal .alloc 
+	add $t1, $v0, $0
+	la $t2,TV_Start
+	sw $t2,0($t0)
+	sw $t0,0($t1)
+	add $t0,$0,$t1 
+	lw $t1,0($t0)
+	lw $t2,0($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $a0, $0, $t1
+	jal .print
+	lw $ra, 4($sp)
+	add $sp, $sp, 4 
+	add $v0, $0, 0
+	jr $ra
+TV_Start:
+	add $sp, $sp, -12 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	add $s0,$0,$a0 
+	add $a0,$0,84
+	jal .alloc 
+	add $t0, $v0, $0
+	add $a0,$0,28
+	jal .alloc 
+	add $t1, $v0, $0
+	la $t2,Tree_accept
+	sw $t2,80($t0)
+	la $t2,Tree_RecPrint
+	sw $t2,76($t0)
+	la $t2,Tree_Print
+	sw $t2,72($t0)
+	la $t2,Tree_Search
+	sw $t2,68($t0)
+	la $t2,Tree_RemoveLeft
+	sw $t2,64($t0)
+	la $t2,Tree_RemoveRight
+	sw $t2,60($t0)
+	la $t2,Tree_Remove
+	sw $t2,56($t0)
+	la $t2,Tree_Delete
+	sw $t2,52($t0)
+	la $t2,Tree_Insert
+	sw $t2,48($t0)
+	la $t2,Tree_Compare
+	sw $t2,44($t0)
+	la $t2,Tree_SetHas_Right
+	sw $t2,40($t0)
+	la $t2,Tree_SetHas_Left
+	sw $t2,36($t0)
+	la $t2,Tree_GetHas_Left
+	sw $t2,32($t0)
+	la $t2,Tree_GetHas_Right
+	sw $t2,28($t0)
+	la $t2,Tree_SetKey
+	sw $t2,24($t0)
+	la $t2,Tree_GetKey
+	sw $t2,20($t0)
+	la $t2,Tree_GetLeft
+	sw $t2,16($t0)
+	la $t2,Tree_GetRight
+	sw $t2,12($t0)
+	la $t2,Tree_SetLeft
+	sw $t2,8($t0)
+	la $t2,Tree_SetRight
+	sw $t2,4($t0)
+	la $t2,Tree_Init
+	sw $t2,0($t0)
+	add $t2,$0,4 
+L2: 
+	add $t3,$0,28 
+	slt $t4, $t2,$t3
+	bne $t4, 1,L3
+	add $t3, $t1,$t2
+	add $t4,$0,0 
+	sw $t4,0($t3)
+	add $t2, $t2,4
+	j L2
+L3: 
+	sw $t0,0($t1)
+	add $s1,$0,$t1 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,0($t1)
+	add $t1,$0,16 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,72($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $t0,$0,100000000 
+	add $a0, $0, $t0
+	jal .print
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,48($t1)
+	add $t1,$0,8 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,48($t1)
+	add $t1,$0,24 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,48($t1)
+	add $t1,$0,4 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,48($t1)
+	add $t1,$0,12 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,48($t1)
+	add $t1,$0,20 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,48($t1)
+	add $t1,$0,28 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,48($t1)
+	add $t1,$0,14 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,72($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $t0,$0,100000000 
+	add $a0, $0, $t0
+	jal .print
+	add $a0,$0,4
+	jal .alloc 
+	add $t0, $v0, $0
+	add $a0,$0,12
+	jal .alloc 
+	add $t1, $v0, $0
+	la $t2,MyVisitor_visit
+	sw $t2,0($t0)
+	add $t2,$0,4 
+L4: 
+	add $t3,$0,12 
+	slt $t4, $t2,$t3
+	bne $t4, 1,L5
+	add $t3, $t1,$t2
+	add $t4,$0,0 
+	sw $t4,0($t3)
+	add $t2, $t2,4
+	j L4
+L5: 
+	sw $t0,0($t1)
+	add $t0,$0,$t1 
+	add $t1,$0,50000000 
+	add $a0, $0, $t1
+	jal .print
+	add $t1,$0,$s1 
+	lw $t2,0($t1)
+	lw $t3,80($t2)
+	add $a0,$0,$t1 
+	add $a1,$0,$t0 
+	jalr $t3
+	add $t2,$0,$v0 
+	add $t0,$0,100000000 
+	add $a0, $0, $t0
+	jal .print
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,68($t1)
+	add $t1,$0,24 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $a0, $0, $t3
+	jal .print
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,68($t1)
+	add $t1,$0,12 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $a0, $0, $t3
+	jal .print
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,68($t1)
+	add $t1,$0,16 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $a0, $0, $t3
+	jal .print
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,68($t1)
+	add $t1,$0,50 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $a0, $0, $t3
+	jal .print
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,68($t1)
+	add $t1,$0,12 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $a0, $0, $t3
+	jal .print
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,52($t1)
+	add $t1,$0,12 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,72($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,68($t1)
+	add $t1,$0,12 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $a0, $0, $t3
+	jal .print
+	add $t0,$0,0 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 12 
+	jr $ra
+Tree_Init:
+	add $sp, $sp, -12 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	sw $s1,12($s0)
+	add $t0,$0,0 
+	sw $t0,16($s0)
+	add $t0,$0,0 
+	sw $t0,20($s0)
+	add $t0,$0,1 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 12 
+	jr $ra
+Tree_SetRight:
+	add $sp, $sp, -12 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	sw $s1,8($s0)
+	add $t0,$0,1 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 12 
+	jr $ra
+Tree_SetLeft:
+	add $sp, $sp, -12 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	sw $s1,4($s0)
+	add $t0,$0,1 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 12 
+	jr $ra
+Tree_GetRight:
+	add $sp, $sp, -8 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	add $s0,$0,$a0 
+	lw $t0,8($s0)
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 8 
+	jr $ra
+Tree_GetLeft:
+	add $sp, $sp, -8 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	add $s0,$0,$a0 
+	lw $t0,4($s0)
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 8 
+	jr $ra
+Tree_GetKey:
+	add $sp, $sp, -8 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	add $s0,$0,$a0 
+	lw $t0,12($s0)
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 8 
+	jr $ra
+Tree_SetKey:
+	add $sp, $sp, -12 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	sw $s1,12($s0)
+	add $t0,$0,1 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 12 
+	jr $ra
+Tree_GetHas_Right:
+	add $sp, $sp, -8 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	add $s0,$0,$a0 
+	lw $t0,20($s0)
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 8 
+	jr $ra
+Tree_GetHas_Left:
+	add $sp, $sp, -8 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	add $s0,$0,$a0 
+	lw $t0,16($s0)
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 8 
+	jr $ra
+Tree_SetHas_Left:
+	add $sp, $sp, -12 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	sw $s1,16($s0)
+	add $t0,$0,1 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 12 
+	jr $ra
+Tree_SetHas_Right:
+	add $sp, $sp, -12 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	sw $s1,20($s0)
+	add $t0,$0,1 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 12 
+	jr $ra
+Tree_Compare:
+	add $sp, $sp, -16 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	sw $s2,16($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	add $s2,$0,$a2 
+	add $t1,$0,0 
+	add $t0, $s2,1
+	slt $t1, $s1,$s2
+	bne $t1, 1,L6
+	add $t1,$0,0 
+	j L7
+L6: 
+	add $t2,$0,1 
+	slt $t3, $s1,$t0
+	sub $t0, $t2,$t3
+	bne $t0, 1,L8
+	add $t1,$0,0 
+	j L9
+L8: 
+	add $t1,$0,1 
+L9: 
+L7: 
+	add $v0,$0,$t1 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $s2,16($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 16 
+	jr $ra
+Tree_Insert:
+	add $sp, $sp, -24 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	sw $s2,16($sp)
+	sw $s3,20($sp)
+	sw $s4,24($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	add $a0,$0,84
+	jal .alloc 
+	add $t0, $v0, $0
+	add $a0,$0,28
+	jal .alloc 
+	add $t1, $v0, $0
+	la $t2,Tree_accept
+	sw $t2,80($t0)
+	la $t2,Tree_RecPrint
+	sw $t2,76($t0)
+	la $t2,Tree_Print
+	sw $t2,72($t0)
+	la $t2,Tree_Search
+	sw $t2,68($t0)
+	la $t2,Tree_RemoveLeft
+	sw $t2,64($t0)
+	la $t2,Tree_RemoveRight
+	sw $t2,60($t0)
+	la $t2,Tree_Remove
+	sw $t2,56($t0)
+	la $t2,Tree_Delete
+	sw $t2,52($t0)
+	la $t2,Tree_Insert
+	sw $t2,48($t0)
+	la $t2,Tree_Compare
+	sw $t2,44($t0)
+	la $t2,Tree_SetHas_Right
+	sw $t2,40($t0)
+	la $t2,Tree_SetHas_Left
+	sw $t2,36($t0)
+	la $t2,Tree_GetHas_Left
+	sw $t2,32($t0)
+	la $t2,Tree_GetHas_Right
+	sw $t2,28($t0)
+	la $t2,Tree_SetKey
+	sw $t2,24($t0)
+	la $t2,Tree_GetKey
+	sw $t2,20($t0)
+	la $t2,Tree_GetLeft
+	sw $t2,16($t0)
+	la $t2,Tree_GetRight
+	sw $t2,12($t0)
+	la $t2,Tree_SetLeft
+	sw $t2,8($t0)
+	la $t2,Tree_SetRight
+	sw $t2,4($t0)
+	la $t2,Tree_Init
+	sw $t2,0($t0)
+	add $t2,$0,4 
+L10: 
+	add $t3,$0,28 
+	slt $t4, $t2,$t3
+	bne $t4, 1,L11
+	add $t3, $t1,$t2
+	add $t4,$0,0 
+	sw $t4,0($t3)
+	add $t2, $t2,4
+	j L10
+L11: 
+	sw $t0,0($t1)
+	add $s2,$0,$t1 
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,0($t1)
+	add $a0,$0,$t0 
+	add $a1,$0,$s1 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $s3,$0,$s0 
+	add $s4,$0,1 
+L12: 
+	bne $s4, 1,L13
+	add $t0,$0,$s3 
+	lw $t1,0($t0)
+	lw $t2,20($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $t0,$0,$t1 
+	slt $t1, $s1,$t0
+	bne $t1, 1,L14
+	add $t0,$0,$s3 
+	lw $t1,0($t0)
+	lw $t2,32($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L16
+	add $t0,$0,$s3 
+	lw $t1,0($t0)
+	lw $t2,16($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $s3,$0,$t1 
+	j L17
+L16: 
+	add $s4,$0,0 
+	add $t0,$0,$s3 
+	lw $t1,0($t0)
+	lw $t2,36($t1)
+	add $t1,$0,1 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s3 
+	lw $t1,0($t0)
+	lw $t2,8($t1)
+	add $a0,$0,$t0 
+	add $a1,$0,$s2 
+	jalr $t2
+	add $t1,$0,$v0 
+L17: 
+	j L15
+L14: 
+	add $t0,$0,$s3 
+	lw $t1,0($t0)
+	lw $t2,28($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L18
+	add $t0,$0,$s3 
+	lw $t1,0($t0)
+	lw $t2,12($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $s3,$0,$t1 
+	j L19
+L18: 
+	add $s4,$0,0 
+	add $t0,$0,$s3 
+	lw $t1,0($t0)
+	lw $t2,40($t1)
+	add $t1,$0,1 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s3 
+	lw $t1,0($t0)
+	lw $t2,4($t1)
+	add $a0,$0,$t0 
+	add $a1,$0,$s2 
+	jalr $t2
+	add $t1,$0,$v0 
+L19: 
+L15: 
+	j L12
+L13: 
+	add $t0,$0,1 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $s2,16($sp)
+	lw $s3,20($sp)
+	lw $s4,24($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 24 
+	jr $ra
+Tree_Delete:
+	add $sp, $sp, -44 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	sw $s2,16($sp)
+	sw $s3,20($sp)
+	sw $s4,24($sp)
+	sw $s6,32($sp)
+	sw $s7,36($sp)
+	sw $s5,40($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	add $s2,$0,$s0 
+	add $s3,$0,$s0 
+	add $s4,$0,1 
+	add $v1,$0,0 
+	sw $v1,28($sp)
+	add $s6,$0,1 
+L20: 
+	bne $s4, 1,L21
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,20($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $s7,$0,$t1 
+	slt $t0, $s1,$s7
+	bne $t0, 1,L22
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,32($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L24
+	add $s3,$0,$s2 
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,16($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $s2,$0,$t1 
+	j L25
+L24: 
+	add $s4,$0,0 
+L25: 
+	j L23
+L22: 
+	slt $t0, $s7,$s1
+	bne $t0, 1,L26
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,28($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L28
+	add $s3,$0,$s2 
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,12($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $s2,$0,$t1 
+	j L29
+L28: 
+	add $s4,$0,0 
+L29: 
+	j L27
+L26: 
+	bne $s6, 1,L30
+	add $s7,$0,0 
+	add $s5,$0,1 
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,28($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	sub $t0, $s5,$t1
+	bne $t0, 1,L34
+	add $s5,$0,1 
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,32($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	sub $t0, $s5,$t1
+	bne $t0, 1,L34
+	add $s7,$0,1 
+L34: 
+	bne $s7, 1,L32
+	j L33
+L32: 
+	add $t0,$0,$s0 
+	lw $t1,0($t0)
+	lw $t2,56($t1)
+	add $a0,$0,$t0 
+	add $a1,$0,$s3 
+	add $a2,$0,$s2 
+	jalr $t2
+	add $t1,$0,$v0 
+L33: 
+	j L31
+L30: 
+	add $t0,$0,$s0 
+	lw $t1,0($t0)
+	lw $t2,56($t1)
+	add $a0,$0,$t0 
+	add $a1,$0,$s3 
+	add $a2,$0,$s2 
+	jalr $t2
+	add $t1,$0,$v0 
+L31: 
+	lw $v1,28($sp)
+	add $v1,$0,1 
+	sw $v1,44($sp)
+	add $s4,$0,0 
+L27: 
+L23: 
+	add $s6,$0,0 
+	j L20
+L21: 
+	lw $v1,44($sp)
+	add $v0,$0,$v1 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $s2,16($sp)
+	lw $s3,20($sp)
+	lw $s4,24($sp)
+	lw $s5,40($sp)
+	lw $s6,32($sp)
+	lw $s7,36($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 44 
+	jr $ra
+Tree_Remove:
+	add $sp, $sp, -20 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	sw $s2,16($sp)
+	sw $s3,20($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	add $s2,$0,$a2 
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,32($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L35
+	add $t0,$0,$s0 
+	lw $t1,0($t0)
+	lw $t2,64($t1)
+	add $a0,$0,$t0 
+	add $a1,$0,$s1 
+	add $a2,$0,$s2 
+	jalr $t2
+	add $t1,$0,$v0 
+	j L36
+L35: 
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,28($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L37
+	add $t0,$0,$s0 
+	lw $t1,0($t0)
+	lw $t2,60($t1)
+	add $a0,$0,$t0 
+	add $a1,$0,$s1 
+	add $a2,$0,$s2 
+	jalr $t2
+	add $t1,$0,$v0 
+	j L38
+L37: 
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,20($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $s3,$0,$t1 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,16($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $t0,$0,$t1 
+	lw $t1,0($t0)
+	lw $t2,20($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $t0,$0,$t1 
+	add $t1,$0,$s0 
+	lw $t2,0($t1)
+	lw $t3,44($t2)
+	add $a0,$0,$t1 
+	add $a1,$0,$s3 
+	add $a2,$0,$t0 
+	jalr $t3
+	add $t2,$0,$v0 
+	bne $t2, 1,L39
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,8($t1)
+	lw $t1,24($s0)
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,36($t1)
+	add $t1,$0,0 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	j L40
+L39: 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,4($t1)
+	lw $t1,24($s0)
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,40($t1)
+	add $t1,$0,0 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+L40: 
+L38: 
+L36: 
+	add $t0,$0,1 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $s2,16($sp)
+	lw $s3,20($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 20 
+	jr $ra
+Tree_RemoveRight:
+	add $sp, $sp, -24 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	sw $s2,16($sp)
+	sw $s3,20($sp)
+	sw $s4,24($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	add $s2,$0,$a2 
+L41: 
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,28($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L42
+	add $s3,$0,$s2 
+	lw $t0,0($s3)
+	lw $s4,24($t0)
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,12($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $t0,$0,$t1 
+	lw $t1,0($t0)
+	lw $t2,20($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $a0,$0,$s3 
+	add $a1,$0,$t1 
+	jalr $s4
+	add $t0,$0,$v0 
+	add $s1,$0,$s2 
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,12($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $s2,$0,$t1 
+	j L41
+L42: 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,4($t1)
+	lw $t1,24($s0)
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,40($t1)
+	add $t1,$0,0 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,1 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $s2,16($sp)
+	lw $s3,20($sp)
+	lw $s4,24($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 24 
+	jr $ra
+Tree_RemoveLeft:
+	add $sp, $sp, -24 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	sw $s2,16($sp)
+	sw $s3,20($sp)
+	sw $s4,24($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	add $s2,$0,$a2 
+L43: 
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,32($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L44
+	add $s3,$0,$s2 
+	lw $t0,0($s3)
+	lw $s4,24($t0)
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,16($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $t0,$0,$t1 
+	lw $t1,0($t0)
+	lw $t2,20($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $a0,$0,$s3 
+	add $a1,$0,$t1 
+	jalr $s4
+	add $t0,$0,$v0 
+	add $s1,$0,$s2 
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,16($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $s2,$0,$t1 
+	j L43
+L44: 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,8($t1)
+	lw $t1,24($s0)
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,36($t1)
+	add $t1,$0,0 
+	add $a0,$0,$t0 
+	add $a1,$0,$t1 
+	jalr $t2
+	add $t3,$0,$v0 
+	add $t0,$0,1 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $s2,16($sp)
+	lw $s3,20($sp)
+	lw $s4,24($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 24 
+	jr $ra
+Tree_Search:
+	add $sp, $sp, -28 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	sw $s2,16($sp)
+	sw $s3,20($sp)
+	sw $s4,24($sp)
+	sw $s5,28($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	add $s2,$0,$s0 
+	add $s3,$0,1 
+	add $s4,$0,0 
+L45: 
+	bne $s3, 1,L46
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,20($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $s5,$0,$t1 
+	slt $t0, $s1,$s5
+	bne $t0, 1,L47
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,32($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L49
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,16($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $s2,$0,$t1 
+	j L50
+L49: 
+	add $s3,$0,0 
+L50: 
+	j L48
+L47: 
+	slt $t0, $s5,$s1
+	bne $t0, 1,L51
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,28($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L53
+	add $t0,$0,$s2 
+	lw $t1,0($t0)
+	lw $t2,12($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $s2,$0,$t1 
+	j L54
+L53: 
+	add $s3,$0,0 
+L54: 
+	j L52
+L51: 
+	add $s4,$0,1 
+	add $s3,$0,0 
+L52: 
+L48: 
+	j L45
+L46: 
+	add $v0,$0,$s4 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $s2,16($sp)
+	lw $s3,20($sp)
+	lw $s4,24($sp)
+	lw $s5,28($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 28 
+	jr $ra
+Tree_Print:
+	add $sp, $sp, -8 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	add $s0,$0,$a0 
+	add $t0,$0,$s0 
+	add $t1,$0,$s0 
+	lw $t2,0($t1)
+	lw $t3,76($t2)
+	add $a0,$0,$t1 
+	add $a1,$0,$t0 
+	jalr $t3
+	add $t2,$0,$v0 
+	add $t0,$0,1 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 8 
+	jr $ra
+Tree_RecPrint:
+	add $sp, $sp, -20 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	sw $s2,16($sp)
+	sw $s3,20($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,32($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L55
+	add $s2,$0,$s0 
+	lw $t0,0($s2)
+	lw $s3,76($t0)
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,16($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $a0,$0,$s2 
+	add $a1,$0,$t1 
+	jalr $s3
+	add $t0,$0,$v0 
+	j L56
+L55: 
+L56: 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,20($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $a0, $0, $t1
+	jal .print
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,28($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L57
+	add $s2,$0,$s0 
+	lw $t0,0($s2)
+	lw $s3,76($t0)
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,12($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $a0,$0,$s2 
+	add $a1,$0,$t1 
+	jalr $s3
+	add $t0,$0,$v0 
+	j L58
+L57: 
+L58: 
+	add $t0,$0,1 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $s2,16($sp)
+	lw $s3,20($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 20 
+	jr $ra
+Tree_accept:
+	add $sp, $sp, -12 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	add $t0,$0,333 
+	add $a0, $0, $t0
+	jal .print
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,0($t1)
+	add $a0,$0,$t0 
+	add $a1,$0,$s0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $t0,$0,0 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 12 
+	jr $ra
+Visitor_visit:
+	add $sp, $sp, -12 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,28($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L59
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,12($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	sw $t1,8($s0)
+	lw $t0,8($s0)
+	add $t1,$0,$t0 
+	lw $t0,0($t1)
+	lw $t2,80($t0)
+	add $a0,$0,$t1 
+	add $a1,$0,$s0 
+	jalr $t2
+	add $t0,$0,$v0 
+	j L60
+L59: 
+L60: 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,32($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L61
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,16($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	sw $t1,4($s0)
+	lw $t0,4($s0)
+	add $t1,$0,$t0 
+	lw $t0,0($t1)
+	lw $t2,80($t0)
+	add $a0,$0,$t1 
+	add $a1,$0,$s0 
+	jalr $t2
+	add $t0,$0,$v0 
+	j L62
+L61: 
+L62: 
+	add $t0,$0,0 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 12 
+	jr $ra
+MyVisitor_visit:
+	add $sp, $sp, -12 
+	sw $ra, 4($sp)
+	sw $s0,8($sp)
+	sw $s1,12($sp)
+	add $s0,$0,$a0 
+	add $s1,$0,$a1 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,28($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L63
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,12($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	sw $t1,8($s0)
+	lw $t0,8($s0)
+	add $t1,$0,$t0 
+	lw $t0,0($t1)
+	lw $t2,80($t0)
+	add $a0,$0,$t1 
+	add $a1,$0,$s0 
+	jalr $t2
+	add $t0,$0,$v0 
+	j L64
+L63: 
+L64: 
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,20($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	add $a0, $0, $t1
+	jal .print
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,32($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	bne $t1, 1,L65
+	add $t0,$0,$s1 
+	lw $t1,0($t0)
+	lw $t2,16($t1)
+	add $a0,$0,$t0 
+	jalr $t2
+	add $t1,$0,$v0 
+	sw $t1,4($s0)
+	lw $t0,4($s0)
+	add $t1,$0,$t0 
+	lw $t0,0($t1)
+	lw $t2,80($t0)
+	add $a0,$0,$t1 
+	add $a1,$0,$s0 
+	jalr $t2
+	add $t0,$0,$v0 
+	j L66
+L65: 
+L66: 
+	add $t0,$0,0 
+	add $v0,$0,$t0 
+	lw $s0,8($sp)
+	lw $s1,12($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 12 
+	jr $ra
+.alloc:
+	add $v0, $0, 9
+	syscall
+	jr $ra
+.print:
+	add $v0, $0, 1
+	syscall
+	add $a0, $0, 10
+	add $v0, $0, 11
+	syscall
+	jr $ra

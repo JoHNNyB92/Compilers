@@ -1,0 +1,33 @@
+Helpers
+  tab   = 9;
+  cr    = 13;
+  lf    = 10;
+  digit = ['0'..'9'];
+    
+Tokens
+  eol   = cr | lf | cr lf;
+  blank = ' ' | tab;
+  star  = '*';
+  slash = '/';
+  plus  = '+';
+  minus = '-';
+  l_par = '(';
+  r_par = ')';
+  number  = (['0'..'9'])+;
+Ignored Tokens
+  blank, eol;
+
+Productions
+  exp = 
+      {plus}    exp plus factor |
+      {minus}   exp minus factor |
+      {factor}  factor;
+
+  factor  =
+      {mult}    factor star term |
+      {divd}    factor slash term |
+      {term}    term;
+
+  term  =
+      {paren}   l_par exp r_par |
+      {number}   number;
